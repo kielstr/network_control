@@ -1,0 +1,5 @@
+name = "NC-Minion"
+# badges = ["travis"]
+module_maker="ModuleBuildTiny"
+static_install = "auto"
+

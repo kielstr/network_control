@@ -1,0 +1,197 @@
+--- 
+# Config
+gateway: 192.168.1.10
+lan_subnets:
+  - 192.168.0.0/19 
+  - 10.0.0.0/19
+masquerade:
+  - 192.168.1.0/24
+  - 10.0.0.0/24
+device: eth0
+
+--- 
+# Queue groups
+
+kiel:
+  desc: Kiel's devices
+  priority: 1
+  download_speed: 100mbit
+  upload_speed: 100mbit
+
+  devices:
+  - download_speed: 11mbit
+    desc: Kiel's laptop
+    hostname: kiels-laptop
+    priority: 1
+    upload_speed: 800kbit
+    mac: b8:e8:56:33:8c:30
+    ip: 192.168.1.6
+
+  - download_speed: 11mbit
+    upload_speed: 700kbit
+    desc: Kiel's phone
+    hostname: kiels-phone
+    priority: 2
+    mac: f8:a9:d0:4d:ab:63
+    ip: 192.168.1.5
+
+  - download_speed: 11mbit
+    upload_speed: 700kbit
+    desc: Garage laptop
+    hostname: garage-laptop
+    priority: 2
+    mac: 00:26:5e:82:c5:21
+    ip: 192.168.1.70
+
+sarah:
+  desc: Sarah's devices
+  priority: 1
+  download_speed: 100mbit
+  upload_speed: 100mbit
+
+  devices:
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Sarah's phone
+    hostname: sarahs-phone
+    priority: 1
+    mac: f8:a9:d0:4d:aa:e0
+    ip: 192.168.1.50
+    
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Sarah's laptop
+    hostname: sarahs-laptop
+    priority: 2
+    mac: 64:80:99:FB:56:44
+    ip: 192.168.1.51
+    
+eliza:
+  desc: Eliza's devices
+  priority: 2
+  download_speed: 100mbit
+  upload_speed: 100mbit
+
+  devices:
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Eliza's iPad
+    hostname: elizas-ipad
+    priority: 1
+    mac: 24:a0:74:1a:95:23
+    ip: 192.168.1.41
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Eliza's tablet
+    hostname: elizas-tablet
+    priority: 2
+    mac: 14:dd:a9:46:bf:e4
+    ip: 192.168.1.40
+
+evie:
+  desc: Evie's devices
+  priority: 2
+  download_speed: 100mbit
+  upload_speed: 100mbit
+
+  devices:
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Evie's laptop
+    hostname: evies-laptop
+    priority: 1
+    mac: 58:fb:84:2c:14:88
+    ip: 192.168.1.20
+    block_nightly: true
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Evie's tablet
+    hostname: evies-tablet
+    priority: 1
+    mac: 14:dd:a9:46:b7:80
+    ip: 192.168.1.21
+    block_nightly: true
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Evie's iPad
+    hostname: evies-ipad
+    priority: 1
+    mac: 5c:f7:e6:20:35:8d
+    ip: 192.168.1.23
+    block_nightly: true
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Evie's phone
+    hostname: evies-phone
+    priority: 1
+    mac: ec:1f:72:21:f3:50
+    ip: 192.168.1.24
+    block_nightly: true
+
+isac:
+  desc: Isac's devices
+  priority: 2
+  download_speed: 100mbit
+  upload_speed: 100mbit
+
+  devices:
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Isac's playstation
+    hostname: isacs-playstation
+    priority: 1
+    mac: c0:38:96:ad:01:59
+    ip: 192.168.1.8
+    block_nightly: true
+    
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Isac's iPad
+    hostname: isacs-ipad
+    priority: 1
+    mac: 24:a2:e1:04:53:f4
+    ip: 192.168.1.12
+    block_nightly: true
+
+media:
+  desc: Media devices
+  priority: 2
+  download_speed: 100mbit
+  upload_speed: 100mbit
+
+  devices:
+  - download_speed: 7mbit
+    upload_speed: 500kbit
+    desc: Loungeroom Apple TV
+    hostname: media-loungeroom-tv
+    priority: 1
+    mac: 68:64:4b:0a:08:15
+    ip: 192.168.1.30
+
+  - download_speed: 7mbit
+    upload_speed: 500kbit
+    desc: Bedroom Apple TV
+    hostname: media-kiels-tv
+    priority: 1
+    mac: 18:ee:69:17:6a:8f
+    ip: 192.168.1.31
+
+dhcp-guests:
+  desc: Media devices
+  priority: 2
+  download_speed: 100mbit
+  upload_speed: 100mbit
+  devices:
+  - download_speed: 2mbit
+    upload_speed: 500kbit
+    desc: All DHCP guests (all other users)
+    hostname: namic-eth0
+    priority: 1
+    dhcp: false
+
+
+  
