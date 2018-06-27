@@ -6,7 +6,7 @@ use warnings;
 use Data::Dumper::Concise;
 
 use FindBin '$RealBin';
-use lib "$RealBin/../lib";
+use lib "$RealBin/../NC/lib";
 
 use YAML::Tiny;
 
