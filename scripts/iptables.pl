@@ -21,18 +21,51 @@ my $iptables = '/sbin/iptables';
 my $iptables_save = '/sbin/iptables-save';
 
 for my $name ( keys %$groups ) {
-    for my $device ( map {$_->{block_nightly} ? $_ : () } @{ $groups->{ $name }{ devices } } ) {
-        my ($stdout, $stderr, @result) = capture {
-            my $cmd = "$iptables $arg FORWARD -s $device->{hostname} -j DROP";
-            say $cmd;
+    for my $device ( @{ $groups->{ $name }{ devices } } ) {
+
+        my ( $stdout, $stderr, @result ) = capture {
+            my $cmd = "$iptables -C FORWARD -s $device->{hostname} -j DROP";
             system $cmd;
         };
 
-        say $stdout if $stdout;
+        my $found_rule = $? == 0 ? 1 : 0;
 
-        say $stderr if $stderr;
+        if ( $found_rule and not $device->{ block_nightly }) {
+            say "Removing old rule";
+            my ( $stdout, $stderr, @result ) = capture {
+                my $cmd = "$iptables -D FORWARD -s $device->{hostname} -j DROP";
+                say $cmd;
+                system $cmd;
+            };  
+            say $stdout if $stdout;
+            say $stderr if $stderr;
+        }
+
+        next unless $device->{ block_nightly };
+
+        if ( $arg eq '-D' and $found_rule ) {
+            say "Deleting rule";
+            my ( $stdout, $stderr, @result ) = capture {
+                my $cmd = "$iptables -D FORWARD -s $device->{hostname} -j DROP";
+                say $cmd;
+                system $cmd;
+            };
+            say $stdout if $stdout;
+            say $stderr if $stderr;
+        } 
+        elsif ( $arg eq '-A' and not $found_rule ) {
+            say "Adding rule";
+            my ( $stdout, $stderr, @result ) = capture {
+                my $cmd = "$iptables -A FORWARD -s $device->{hostname} -j DROP";
+                say $cmd;
+                system $cmd;
+            };
+            say $stdout if $stdout;
+            say $stderr if $stderr;
+        }
     }
 }
+
 
 my ($stdout, $stderr, @result) = capture {
     system "$iptables_save > /etc/iptables/rules.v4";
