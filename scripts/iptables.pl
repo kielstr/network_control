@@ -23,10 +23,7 @@ my $iptables_save = '/sbin/iptables-save';
 for my $name ( keys %$groups ) {
     for my $device ( @{ $groups->{ $name }{ devices } } ) {
 
-        my ( $stdout, $stderr, @result ) = capture {
-            my $cmd = "$iptables -C FORWARD -s $device->{hostname} -j DROP";
-            system $cmd;
-        };
+        system "$iptables -C FORWARD -s $device->{hostname} -j DROP";
 
         my $found_rule = $? == 0 ? 1 : 0;
 
@@ -65,7 +62,6 @@ for my $name ( keys %$groups ) {
         }
     }
 }
-
 
 my ($stdout, $stderr, @result) = capture {
     system "$iptables_save > /etc/iptables/rules.v4";
