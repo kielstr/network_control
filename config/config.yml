@@ -36,6 +36,9 @@ kiel:
     mac: f8:a9:d0:4d:ab:63
     ip: 192.168.1.5
     dhcp: true
+    block_nightly: false
+    block_time: 20:58
+    unblock_time: 20:59
 
   - download_speed: 11mbit
     upload_speed: 700kbit
@@ -110,8 +113,10 @@ evie:
     priority: 1
     mac: 58:fb:84:2c:14:88
     ip: 192.168.1.20
-    block_nightly: true
     dhcp: true
+    block_nightly: true
+    block_time: 22:00
+    unblock_time: 6:00
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -120,8 +125,10 @@ evie:
     priority: 1
     mac: 14:dd:a9:46:b7:80
     ip: 192.168.1.21
-    block_nightly: true
     dhcp: true
+    block_nightly: true
+    block_time: 22:00
+    unblock_time: 6:00
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -130,8 +137,10 @@ evie:
     priority: 1
     mac: 5c:f7:e6:20:35:8d
     ip: 192.168.1.23
-    block_nightly: true
     dhcp: true
+    block_nightly: true
+    block_time: 22:00
+    unblock_time: 6:00
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -140,8 +149,10 @@ evie:
     priority: 1
     mac: ec:1f:72:21:f3:50
     ip: 192.168.1.24
-    block_nightly: true
     dhcp: true
+    block_nightly: true
+    block_time: 22:00
+    unblock_time: 6:00
 
 isac:
   desc: Isac's devices
@@ -157,8 +168,10 @@ isac:
     priority: 1
     mac: c0:38:96:ad:01:59
     ip: 192.168.1.8
-    block_nightly: true
     dhcp: true
+    block_nightly: true
+    block_time: 24:00
+    unblock_time: 6:00
     
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -167,8 +180,10 @@ isac:
     priority: 1
     mac: 24:a2:e1:04:53:f4
     ip: 192.168.1.12
-    block_nightly: true
     dhcp: true
+    block_nightly: true
+    block_time: 24:00
+    unblock_time: 6:00
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -177,8 +192,10 @@ isac:
     priority: 1
     mac: 58:1F:AA:87:69:99
     ip: 192.168.1.9
-    block_nightly: true
     dhcp: true
+    block_nightly: true
+    block_time: 24:00
+    unblock_time: 6:00
 
 media:
   desc: Media devices
