@@ -36,9 +36,6 @@ kiel:
     mac: f8:a9:d0:4d:ab:63
     ip: 192.168.1.5
     dhcp: true
-    block_nightly: false
-    block_time: 20:58
-    unblock_time: 20:59
 
   - download_speed: 11mbit
     upload_speed: 700kbit
@@ -118,6 +115,27 @@ evie:
     block_time: 22:00
     unblock_time: 6:00
 
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 22:00
+        tuesday: 
+          unblock: 6:00
+          block: 22:00
+        wednesday: 
+          unblock: 6:00
+          block: 22:00
+        thursday: 
+          unblock: 6:00
+          block: 22:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 22:00
+
+
   - download_speed: 5mbit
     upload_speed: 500kbit
     desc: Evie's tablet
@@ -129,6 +147,26 @@ evie:
     block_nightly: true
     block_time: 22:00
     unblock_time: 6:00
+
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 22:00
+        tuesday: 
+          unblock: 6:00
+          block: 22:00
+        wednesday: 
+          unblock: 6:00
+          block: 22:00
+        thursday: 
+          unblock: 6:00
+          block: 22:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 22:00
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -142,6 +180,27 @@ evie:
     block_time: 22:00
     unblock_time: 6:00
 
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 22:00
+        tuesday: 
+          unblock: 6:00
+          block: 22:00
+        wednesday: 
+          unblock: 6:00
+          block: 22:00
+        thursday: 
+          unblock: 6:00
+          block: 22:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 22:00
+
+
   - download_speed: 5mbit
     upload_speed: 500kbit
     desc: Evie's phone
@@ -153,6 +212,26 @@ evie:
     block_nightly: true
     block_time: 22:00
     unblock_time: 6:00
+
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 22:00
+        tuesday: 
+          unblock: 6:00
+          block: 22:00
+        wednesday: 
+          unblock: 6:00
+          block: 22:00
+        thursday: 
+          unblock: 6:00
+          block: 22:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 22:00
 
 isac:
   desc: Isac's devices
@@ -172,6 +251,26 @@ isac:
     block_nightly: true
     block_time: 24:00
     unblock_time: 6:00
+
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 24:00
+        tuesday: 
+          unblock: 6:00
+          block: 24:00
+        wednesday: 
+          unblock: 6:00
+          block: 24:00
+        thursday: 
+          unblock: 6:00
+          block: 24:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 24:00
     
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -185,6 +284,26 @@ isac:
     block_time: 24:00
     unblock_time: 6:00
 
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 24:00
+        tuesday: 
+          unblock: 6:00
+          block: 24:00
+        wednesday: 
+          unblock: 6:00
+          block: 24:00
+        thursday: 
+          unblock: 6:00
+          block: 24:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 24:00
+
   - download_speed: 5mbit
     upload_speed: 500kbit
     desc: Isac's iPhone
@@ -197,6 +316,26 @@ isac:
     block_time: 24:00
     unblock_time: 6:00
 
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 24:00
+        tuesday: 
+          unblock: 6:00
+          block: 24:00
+        wednesday: 
+          unblock: 6:00
+          block: 24:00
+        thursday: 
+          unblock: 6:00
+          block: 24:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 24:00
+
 media:
   desc: Media devices
   priority: 2
@@ -204,7 +343,7 @@ media:
   upload_speed: 100mbit
 
   devices:
-  - download_speed: 7mbit
+  - download_speed: 6mbit
     upload_speed: 500kbit
     desc: Loungeroom Apple TV
     hostname: media-loungeroom-tv
@@ -213,7 +352,7 @@ media:
     ip: 192.168.1.30
     dhcp: true
 
-  - download_speed: 7mbit
+  - download_speed: 6mbit
     upload_speed: 500kbit
     desc: Bedroom Apple TV
     hostname: media-kiels-tv
