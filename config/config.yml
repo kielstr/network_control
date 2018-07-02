@@ -249,7 +249,7 @@ isac:
     ip: 192.168.1.8
     dhcp: true
     block_nightly: true
-    block_time: 24:00
+    block_time: 00:00
     unblock_time: 6:00
 
     blocking:
@@ -257,20 +257,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 24:00
+          block: 0:22
         tuesday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         wednesday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         thursday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 24:00
+          block: 00:00
     
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -281,7 +281,7 @@ isac:
     ip: 192.168.1.12
     dhcp: true
     block_nightly: true
-    block_time: 24:00
+    block_time: 00:00
     unblock_time: 6:00
 
     blocking:
@@ -289,20 +289,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 24:00
+          block: 0:23
         tuesday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         wednesday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         thursday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 24:00
+          block: 00:00
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -313,7 +313,7 @@ isac:
     ip: 192.168.1.9
     dhcp: true
     block_nightly: true
-    block_time: 24:00
+    block_time: 00:00
     unblock_time: 6:00
 
     blocking:
@@ -321,20 +321,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         tuesday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         wednesday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         thursday: 
           unblock: 6:00
-          block: 24:00
+          block: 00:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 24:00
+          block: 00:00
 
 media:
   desc: Media devices
