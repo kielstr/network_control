@@ -1,0 +1,56 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:          netctl
+# Required-Start:    $all
+# Required-Stop:     $local_fs
+# Default-Start:     3
+# Default-Stop:      0 1 6
+# Short-Description: netctl
+# Description:       apply packet shaping rules
+### END INIT INFO
+
+#Then move your script to init.d folder & set it as executable
+
+#sudo mv foobar /etc/init.d/       # move to init.d
+#sudo chmod 755 /etc/init.d/foobar # make executable
+
+#If you want to launch your script at startup :
+#update-rc.d foobar defaults 
+
+#If you want to remove your script from startup :
+#update-rc.d -f foobar remove
+
+#If you want to start your script manually :
+#service foobar start
+
+# see the output 
+# systemctl status netctl
+
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "Starting network control "
+
+    # example 1 - system service
+    # /usr/bin/foobar --config /etc/foo.conf start
+
+    # example 2 - run script as user
+    # su --login mkaz --command "/home/mkaz/bin/my-script --cmd-args"
+    
+    /home/kiel/network_control/scripts/network_control.pl /home/kiel/network_control/config/config.yml
+
+    ;;
+  stop)
+    echo "Stopping -- we dont do anything for now"
+
+    # example 1
+    # /usr/bin/foobar --config /etc/foo.conf stop
+
+    ;;
+  *)
+    echo "Usage: /etc/init.d/netctl {start|stop}"
+    exit 1
+    ;;
+esac
