@@ -41,18 +41,34 @@ $qd->run( 'iptables -t mangle -F' );
 # Clear chains
 $qd->run( 'iptables -F' );
 
-for my $subnet ( @{ $local_network{ masquerade } } ) {
-    $qd->run( sprintf 'iptables -t nat -A POSTROUTING -s %s -o %s -j MASQUERADE', $subnet, $local_network{ device } );
-}
+my $parent_handle = $qd->next_queue_id;
 
 my $parent_queue = NC::TC::Queue->new(
     device       => $qd->device,
-    id           => $qd->handle . $qd->next_queue_id,
+    id           => $qd->handle . $parent_handle,
     priority     => 1,
     parent       => $qd->handle,
     rate         => '100mbit',
     ceiling      => '100mbit',
 )->create;
+
+
+$qd->run( sprintf 'tc filter add dev %s parent 1:0 protocol ip prio 1 handle %s fw classid %s', 
+    $local_network{ device },
+    $qd->next_queue_id,
+    $qd->handle . $qd->next_queue_id,
+);
+
+# Masquerade for local networks.
+for my $subnet ( @{ $local_network{ masquerade } } ) {
+    $qd->run( sprintf 'iptables -t nat -A POSTROUTING -s %s -o %s -j MASQUERADE', $subnet, $local_network{ device } );
+}
+
+# Fast queue for local traffic.
+for my $subnet ( @{ $local_network{ lan_subnets } } ) {
+    $qd->run( sprintf 'iptables -t mangle -A POSTROUTING -d %s -j MARK --set-mark %d',  $subnet, $parent_handle );
+    $qd->run( sprintf 'iptables -t mangle -A POSTROUTING -d %s -j RETURN', $subnet);
+}
 
 for my $group_name ( keys %devices ) {
 
