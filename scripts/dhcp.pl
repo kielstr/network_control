@@ -22,10 +22,10 @@ select $fh;
 
 say "group {";
 
-say "\tsubnet 192.168.1.0 netmask 255.255.255.0 {";
+say "\tsubnet $local_network->{ 'dhcp-subnet' } netmask $local_network->{ 'dhcp-netmask' } {";
 say "\t\t#range 192.168.1.100 192.168.1.200;";
-say "\t\toption routers 192.168.1.10;";
-say "\t\toption broadcast-address 192.168.1.255;";
+say "\t\toption routers $local_network->{ gateway };";
+say "\t\toption broadcast-address $local_network->{ 'broadcast-address' };";
 say "\t}";
 
 for my $name ( keys %$groups ) {
