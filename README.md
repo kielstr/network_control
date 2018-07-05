@@ -15,6 +15,8 @@ static domain_name_servers=10.0.0.1
 static domain_search=intra.acidchild.org
 ```
 
+### Setup gateway
+
 Edit `/etc/sysctl.conf`
 
 Change 
