@@ -3,17 +3,14 @@
 gateway: 192.168.1.3
 lan_subnets:
   - 192.168.1.0/24 
-  - 10.0.0.0/24
 masquerade:
   - 192.168.1.0/24
-  - 10.0.0.0/24
 device: enp2s0
 # DHCP options
 broadcast-address: 192.168.1.25
 dhcp-subnet: 192.168.1.0
 dhcp-netmask: 255.255.255.0
 dhcp-range: 192.168.1.100:192.168.1.200 
-
 
 --- 
 # Queue groups
@@ -25,7 +22,7 @@ kiel:
   upload_speed: 100mbit
 
   devices:
-  - download_speed: 11mbit
+  - download_speed: 12mbit
     desc: Kiel's laptop
     hostname: kiels-laptop
     priority: 1
@@ -34,7 +31,7 @@ kiel:
     ip: 192.168.1.6
     dhcp: true
 
-  - download_speed: 11mbit
+  - download_speed: 12mbit
     upload_speed: 700kbit
     desc: Kiel's phone
     hostname: kiels-phone
@@ -43,7 +40,7 @@ kiel:
     ip: 192.168.1.5
     dhcp: true
 
-  - download_speed: 11mbit
+  - download_speed: 12mbit
     upload_speed: 700kbit
     desc: Garage laptop
     hostname: garage-laptop
@@ -394,15 +391,15 @@ media:
     ip: 192.168.1.31
     dhcp: true
 
-dhcp-guests:
+namic:
   desc: Media devices
   priority: 2
   download_speed: 100mbit
   upload_speed: 100mbit
   devices:
-  - download_speed: 2mbit
+  - download_speed: 10mbit
     upload_speed: 500kbit
     desc: All DHCP guests (all other users)
-    hostname: namic-eth0
+    hostname: namic
     priority: 1
     dhcp: false

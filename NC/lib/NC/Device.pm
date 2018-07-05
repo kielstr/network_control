@@ -30,6 +30,8 @@ method upload_queue_rule () {
     $self->run( $cmd );
 
     for my $subnet ( @{ $self->upload_queue->lan_subnets } ) {
+        # Was PREROUTING
+        
         $cmd = sprintf 'iptables -t mangle -A PREROUTING -s %s ! -d %s -j MARK --set-mark %d', 
             $self->hostname, 
             $subnet, 
@@ -40,7 +42,6 @@ method upload_queue_rule () {
         $cmd = sprintf 'iptables -t mangle -A PREROUTING -s %s ! -d %s -j RETURN',
             $self->hostname,
             $subnet;
-
 
         $self->run( $cmd );
     }
@@ -59,14 +60,19 @@ method download_queue_rule () {
 
     $self->run( $cmd );
 
-    $cmd = sprintf "iptables -t mangle -A POSTROUTING -d %s -j MARK --set-mark %d", 
-        $self->hostname, 
-        $self->download_queue->mark;
+    for my $subnet ( @{ $self->upload_queue->lan_subnets } ) {
+        # Was POSTROUTING
 
-    $self->run( $cmd );
+        $cmd = sprintf "iptables -t mangle -A POSTROUTING -d %s ! -s %s -j MARK --set-mark %d", 
+            $self->hostname,
+            $subnet,
+            $self->download_queue->mark;
 
-    $cmd = sprintf "iptables -t mangle -A POSTROUTING -d %s -j RETURN", $self->hostname;
-    $self->run( $cmd );
+        $self->run( $cmd );
+
+        $cmd = sprintf "iptables -t mangle -A POSTROUTING -d %s ! -s %s -j RETURN", $self->hostname, $subnet;
+        $self->run( $cmd );
+    }
 
     return $self; 
 }

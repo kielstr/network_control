@@ -52,7 +52,6 @@ my $parent_queue = NC::TC::Queue->new(
     ceiling      => '100mbit',
 )->create;
 
-
 $qd->run( sprintf 'tc filter add dev %s parent 1:0 protocol ip prio 1 handle %s fw classid %s', 
     $local_network{ device },
     $qd->next_queue_id,
@@ -61,14 +60,42 @@ $qd->run( sprintf 'tc filter add dev %s parent 1:0 protocol ip prio 1 handle %s 
 
 # Masquerade for local networks.
 for my $subnet ( @{ $local_network{ masquerade } } ) {
-    $qd->run( sprintf 'iptables -t nat -A POSTROUTING -s %s -o %s -j MASQUERADE', $subnet, $local_network{ device } );
+    # Fast NAT
+    $qd->run( sprintf 'iptables -t nat -A POSTROUTING -s %s -o %s -j SNAT --to-source %s',$subnet, $local_network{ device },  $local_network{ gateway });
+    
+    # Slow NAT
+    #$qd->run( sprintf 'iptables -t nat -A POSTROUTING -s %s -o %s -j MASQUERADE', $subnet, $local_network{ device } );
 }
 
 # Fast queue for local traffic.
-for my $subnet ( @{ $local_network{ lan_subnets } } ) {
-    $qd->run( sprintf 'iptables -t mangle -A POSTROUTING -d %s -j MARK --set-mark %d',  $subnet, $parent_handle );
-    $qd->run( sprintf 'iptables -t mangle -A POSTROUTING -d %s -j RETURN', $subnet);
-}
+#for my $subnet ( @{ $local_network{ lan_subnets } } ) {
+    #$qd->run( sprintf 'iptables -t mangle -A PREROUTING -s 192.168.1.3 -d %s -j MARK --set-mark %d', $subnet, $parent_handle );
+    #$qd->run( sprintf 'iptables -t mangle -A PREROUTING -s 192.168.1.3 -d %s -j RETURN', $subnet);
+
+    #$qd->run( sprintf 'iptables -t mangle -A PREROUTING -d %s -j MARK --set-mark %d',  $subnet, $parent_handle );
+    #$qd->run( sprintf 'iptables -t mangle -A PREROUTING -d %s -j RETURN', $subnet);
+#}
+
+# Mark traffic from namic 
+#$qd->run( 'iptables -t mangle -A INPUT -s 192.168.1.10 -d 192.168.1.0/24 -j MARK --set-mark 2' );
+# Log traffic from namic
+#$qd->run( "iptables -t mangle -A INPUT -s 192.168.1.10 -d 192.168.1.0/24 -j LOG --log-prefix '** FROM NAMIC ** '" );
+# Return 
+#$qd->run( 'iptables -t mangle -A INPUT -s 192.168.1.10 -d 192.168.1.0/24 -j RETURN ' );
+
+# Mark traffic to namic
+#$qd->run( 'iptables -t mangle -A INPUT -d 192.168.1.10 -s 192.168.1.0/24 -j MARK --set-mark 2' );
+# Lof traffic to namic
+#$qd->run( "iptables -t mangle -A INPUT -d 192.168.1.10 -s 192.168.1.0/24 -j LOG --log-prefix '** TO NAMIC ** '" );
+# Return
+#$qd->run( 'iptables -t mangle -A INPUT -d 192.168.1.10 -s 192.168.1.0/24 -j RETURN' );
+
+
+#system "iptables -A PREROUTING -j LOG --log-prefix '** PRE ** '";
+#system "iptables -A INPUT -j LOG --log-prefix '** INPUT ** '";
+#system "iptables -A FORWARD -d 192.168.1.3 -j LOG --log-prefix '** FORWARD ** '";
+#system "iptables -A POSTROUTING -j LOG --log-prefix '** POST ** '";
+
 
 for my $group_name ( keys %devices ) {
 
