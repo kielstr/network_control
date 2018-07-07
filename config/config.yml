@@ -5,6 +5,7 @@ lan_subnets:
   - 192.168.1.0/24 
 masquerade:
   - 192.168.1.0/24
+  - 10.0.2.0/24
 device: enp2s0
 # DHCP options
 broadcast-address: 192.168.1.25
@@ -35,7 +36,7 @@ kiel:
     upload_speed: 700kbit
     desc: Kiel's phone
     hostname: kiels-phone
-    priority: 2
+    priority: 1
     mac: f8:a9:d0:4d:ab:63
     ip: 192.168.1.5
     dhcp: true
@@ -44,14 +45,14 @@ kiel:
     upload_speed: 700kbit
     desc: Garage laptop
     hostname: garage-laptop
-    priority: 2
+    priority: 1
     mac: 00:26:5e:82:c5:21
     ip: 192.168.1.70
     dhcp: true
 
 sarah:
   desc: Sarah's devices
-  priority: 1
+  priority: 2
   download_speed: 100mbit
   upload_speed: 100mbit
 
@@ -60,7 +61,7 @@ sarah:
     upload_speed: 500kbit
     desc: Sarah's phone
     hostname: sarahs-phone
-    priority: 1
+    priority: 2
     mac: f8:a9:d0:4d:aa:e0
     ip: 192.168.1.50
     dhcp: true
@@ -76,7 +77,7 @@ sarah:
     
 eliza:
   desc: Eliza's devices
-  priority: 2
+  priority: 3
   download_speed: 100mbit
   upload_speed: 100mbit
 
@@ -85,7 +86,7 @@ eliza:
     upload_speed: 500kbit
     desc: Eliza's iPad
     hostname: elizas-ipad
-    priority: 1
+    priority: 3
     mac: 24:a0:74:1a:95:23
     ip: 192.168.1.41
     dhcp: true
@@ -94,14 +95,14 @@ eliza:
     upload_speed: 500kbit
     desc: Eliza's tablet
     hostname: elizas-tablet
-    priority: 2
+    priority: 3
     mac: 14:dd:a9:46:bf:e4
     ip: 192.168.1.40
     dhcp: true
 
 evie:
   desc: Evie's devices
-  priority: 2
+  priority: 3
   download_speed: 100mbit
   upload_speed: 100mbit
 
@@ -110,7 +111,7 @@ evie:
     upload_speed: 500kbit
     desc: Evie's laptop
     hostname: evies-laptop
-    priority: 1
+    priority: 3
     mac: 58:fb:84:2c:14:88
     ip: 192.168.1.20
     dhcp: true
@@ -143,7 +144,7 @@ evie:
     upload_speed: 500kbit
     desc: Evie's tablet
     hostname: evies-tablet
-    priority: 1
+    priority: 3
     mac: 14:dd:a9:46:b7:80
     ip: 192.168.1.21
     dhcp: true
@@ -175,7 +176,7 @@ evie:
     upload_speed: 500kbit
     desc: Evie's iPad
     hostname: evies-ipad
-    priority: 1
+    priority: 3
     mac: 5c:f7:e6:20:35:8d
     ip: 192.168.1.23
     dhcp: true
@@ -208,7 +209,7 @@ evie:
     upload_speed: 500kbit
     desc: Evie's phone
     hostname: evies-phone
-    priority: 1
+    priority: 3
     mac: ec:1f:72:21:f3:50
     ip: 192.168.1.24
     dhcp: true
@@ -238,7 +239,7 @@ evie:
 
 isac:
   desc: Isac's devices
-  priority: 2
+  priority: 3
   download_speed: 100mbit
   upload_speed: 100mbit
 
@@ -247,7 +248,7 @@ isac:
     upload_speed: 500kbit
     desc: Isac's playstation
     hostname: isacs-playstation
-    priority: 1
+    priority: 3
     mac: c0:38:96:ad:01:59
     ip: 192.168.1.8
     dhcp: true
@@ -279,7 +280,7 @@ isac:
     upload_speed: 500kbit
     desc: Isac's iPad
     hostname: isacs-ipad
-    priority: 1
+    priority: 3
     mac: 24:a2:e1:04:53:f4
     ip: 192.168.1.12
     dhcp: true
@@ -311,7 +312,7 @@ isac:
     upload_speed: 500kbit
     desc: Isac's iPhone
     hostname: isacs-phone
-    priority: 1
+    priority: 3
     mac: 58:1F:AA:87:69:99
     ip: 192.168.1.9
     dhcp: true
@@ -341,7 +342,7 @@ isac:
 
 linda:
   desc: Linda's devices
-  priority: 1
+  priority: 3
   download_speed: 100mbit
   upload_speed: 100mbit
 
@@ -349,7 +350,7 @@ linda:
   - download_speed: 3mbit
     desc: Linda's iPad
     hostname: lindas-ipad
-    priority: 1
+    priority: 3
     upload_speed: 800kbit
     mac: b8:63:4d:cc:e8:1a
     ip: 192.168.1.60
@@ -358,17 +359,15 @@ linda:
   - download_speed: 3mbit
     desc: Linda's Phone
     hostname: lindas-phone
-    priority: 1
+    priority: 3
     upload_speed: 800kbit
     mac: d8:c4:6a:cb:53:ca
     ip: 192.168.1.61
     dhcp: true
 
-
-
 media:
   desc: Media devices
-  priority: 2
+  priority: 1
   download_speed: 100mbit
   upload_speed: 100mbit
 
@@ -391,15 +390,11 @@ media:
     ip: 192.168.1.31
     dhcp: true
 
-namic:
-  desc: Media devices
-  priority: 2
-  download_speed: 100mbit
-  upload_speed: 100mbit
-  devices:
-  - download_speed: 10mbit
+  - download_speed: 6mbit
     upload_speed: 500kbit
-    desc: All DHCP guests (all other users)
-    hostname: namic
+    desc: All media
+    hostname: namic-eth0
     priority: 1
+    mac: 68:64:4b:0a:08:15
+    ip: 192.168.1.10
     dhcp: false

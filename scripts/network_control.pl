@@ -58,10 +58,12 @@ $qd->run( sprintf 'tc filter add dev %s parent 1:0 protocol ip prio 1 handle %s 
     $qd->handle . $qd->next_queue_id,
 );
 
+#$qd->run( sprintf 'iptables -t nat -A POSTROUTING -o %s -j SNAT --to-source %s', $local_network{ device },  $local_network{ gateway });
+
 # Masquerade for local networks.
 for my $subnet ( @{ $local_network{ masquerade } } ) {
     # Fast NAT
-    $qd->run( sprintf 'iptables -t nat -A POSTROUTING -s %s -o %s -j SNAT --to-source %s',$subnet, $local_network{ device },  $local_network{ gateway });
+    $qd->run( sprintf 'iptables -t nat -A POSTROUTING -s %s -o %s -j SNAT --to-source %s', $subnet, $local_network{ device },  $local_network{ gateway });
     
     # Slow NAT
     #$qd->run( sprintf 'iptables -t nat -A POSTROUTING -s %s -o %s -j MASQUERADE', $subnet, $local_network{ device } );
