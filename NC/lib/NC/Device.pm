@@ -63,14 +63,18 @@ method download_queue_rule () {
     for my $subnet ( @{ $self->upload_queue->lan_subnets } ) {
         # Was POSTROUTING
 
-        $cmd = sprintf "iptables -t mangle -A POSTROUTING -d %s ! -s %s -j MARK --set-mark %d", 
+        $cmd = sprintf "iptables -t mangle -A FORWARD -d %s ! -s %s -j MARK --set-mark %d", 
             $self->hostname,
             $subnet,
             $self->download_queue->mark;
 
         $self->run( $cmd );
 
-        $cmd = sprintf "iptables -t mangle -A POSTROUTING -d %s ! -s %s -j RETURN", $self->hostname, $subnet;
+        #if ( $self->hostname eq 'kiels-laptop-wired' ) {
+            #$self->run( sprintf "iptables -t mangle -A FORWARD -d %s ! -s %s -j LOG --log-prefix '** %s ** '", $self->hostname, $subnet, $self->hostname );
+        #}
+
+        $cmd = sprintf "iptables -t mangle -A FORWARD -d %s ! -s %s -j RETURN", $self->hostname, $subnet;
         $self->run( $cmd );
     }
 
