@@ -41,6 +41,12 @@ $qd->run( 'iptables -t mangle -F' );
 # Clear chains
 $qd->run( 'iptables -F' );
 
+# Allow ssh hosts
+
+$qd->run( 'iptables -A INPUT -p tcp -s portal.sdlocal.net --dport 22 -j ACCEPT' );
+$qd->run( 'iptables -A INPUT -p tcp -s 192.168.1.0/24 --dport 22 -j ACCEPT' );
+$qd->run( 'iptables -A INPUT -p tcp --dport 22 -j DROP' );
+
 my $parent_handle = $qd->next_queue_id;
 
 my $parent_queue = NC::TC::Queue->new(
@@ -78,19 +84,9 @@ for my $subnet ( @{ $local_network{ masquerade } } ) {
     #$qd->run( sprintf 'iptables -t mangle -A PREROUTING -d %s -j RETURN', $subnet);
 #}
 
-# Mark traffic from namic 
-#$qd->run( 'iptables -t mangle -A INPUT -s 192.168.1.10 -d 192.168.1.0/24 -j MARK --set-mark 2' );
-# Log traffic from namic
-#$qd->run( "iptables -t mangle -A INPUT -s 192.168.1.10 -d 192.168.1.0/24 -j LOG --log-prefix '** FROM NAMIC ** '" );
-# Return 
-#$qd->run( 'iptables -t mangle -A INPUT -s 192.168.1.10 -d 192.168.1.0/24 -j RETURN ' );
 
-# Mark traffic to namic
-#$qd->run( 'iptables -t mangle -A INPUT -d 192.168.1.10 -s 192.168.1.0/24 -j MARK --set-mark 2' );
-# Lof traffic to namic
-#$qd->run( "iptables -t mangle -A INPUT -d 192.168.1.10 -s 192.168.1.0/24 -j LOG --log-prefix '** TO NAMIC ** '" );
-# Return
-#$qd->run( 'iptables -t mangle -A INPUT -d 192.168.1.10 -s 192.168.1.0/24 -j RETURN' );
+#$qd->run( "iptables -t mangle -A POSTROUTING -d 192.168.1.10 -s 192.168.1.0/24 -j LOG --log-prefix '** TO NAMIC ** '" );
+
 
 
 #system "iptables -A PREROUTING -j LOG --log-prefix '** PRE ** '";

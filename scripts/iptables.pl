@@ -67,8 +67,8 @@ for my $name ( keys %$groups ) {
 }
 
 my ($stdout, $stderr, @result) = capture {
-    system "$iptables_save > /etc/iptables/rules.v4";
-    system $iptables, '-L', '-n';
+    #system "$iptables_save > /etc/iptables/rules.v4";
+    #system $iptables, '-L', '-n';
 };
 
 die $stderr if $stderr;

@@ -35,6 +35,9 @@ say 'Time now is ' . join ':', $hour, $min . " on $day"
 my $iptables_changed = 0;
 
 for my $name ( keys %$groups ) {
+
+    my $blocked = $groups->{ $name }{ blocked } ? 1 : 0;
+
     for my $device ( @{ $groups->{ $name }{ devices } } ) {
 
         my $rules = $device->{ blocking };
@@ -42,6 +45,14 @@ for my $name ( keys %$groups ) {
         run ( "$iptables -C FORWARD -s $device->{hostname} -j DROP" );
 
         my $found_rule = $? == 0 ? 1 : 0;
+
+        if ( $blocked and $found_rule ) {
+            next;
+        } 
+        elsif ( $blocked ) {
+            run ( "$iptables -A FORWARD -s $device->{hostname} -j DROP", { showerr => 1 } );
+            next
+        }
 
         if ( $found_rule and not $rules  
             or $found_rule and $rules and $rules->{ active } eq 'false' 

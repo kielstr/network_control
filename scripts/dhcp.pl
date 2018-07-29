@@ -33,6 +33,7 @@ for my $name ( keys %$groups ) {
         say "\thost $device->{ hostname } {";
         say "\t\thardware ethernet $device->{mac};";
         say "\t\tfixed-address $device->{ip};";
+        say sprintf "\t\toption domain-name-servers %s;", join ',', @{ $device->{ 'domain-name-servers' } } if $device->{ 'domain-name-servers' };
         say "\t}";
     }
 }

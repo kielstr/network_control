@@ -20,8 +20,8 @@ dhcp-range: 192.168.1.100:192.168.1.200
 kiel:
   desc: Kiel's devices
   priority: 1
-  download_speed: 100mbit
-  upload_speed: 100mbit
+  download_speed: 1000mbit
+  upload_speed: 10000mbit
 
   devices:
   - download_speed: 12mbit
@@ -50,6 +50,9 @@ kiel:
     mac: f8:a9:d0:4d:ab:63
     ip: 192.168.1.5
     dhcp: true
+#    domain-name-servers: 
+#      - 208.67.222.123
+#      - 208.67.220.123
 
   - download_speed: 12mbit
     upload_speed: 700kbit
@@ -63,8 +66,8 @@ kiel:
 sarah:
   desc: Sarah's devices
   priority: 2
-  download_speed: 100mbit
-  upload_speed: 100mbit
+  download_speed: 1000mbit
+  upload_speed: 1000mbit
 
   devices:
   - download_speed: 5mbit
@@ -88,8 +91,8 @@ sarah:
 eliza:
   desc: Eliza's devices
   priority: 3
-  download_speed: 100mbit
-  upload_speed: 100mbit
+  download_speed: 1000mbit
+  upload_speed: 1000mbit
 
   devices:
   - download_speed: 5mbit
@@ -99,6 +102,15 @@ eliza:
     priority: 3
     mac: 24:a0:74:1a:95:23
     ip: 192.168.1.41
+    dhcp: true
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Eliza's Phone
+    hostname: elizas-phone
+    priority: 3
+    mac: 38:f8:89:ec:5a:06
+    ip: 192.168.1.42
     dhcp: true
 
   - download_speed: 5mbit
@@ -113,8 +125,8 @@ eliza:
 evie:
   desc: Evie's devices
   priority: 3
-  download_speed: 100mbit
-  upload_speed: 100mbit
+  download_speed: 1000mbit
+  upload_speed: 1000mbit
 
   devices:
   - download_speed: 5mbit
@@ -128,26 +140,29 @@ evie:
     block_nightly: true
     block_time: 22:00
     unblock_time: 6:00
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
 
     blocking:
       active: true
       schedule:
         monday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         tuesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         wednesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         thursday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 0:00
+          block: 22:00
 
 
   - download_speed: 5mbit
@@ -161,26 +176,29 @@ evie:
     block_nightly: true
     block_time: 22:00
     unblock_time: 6:00
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
 
     blocking:
       active: true
       schedule:
         monday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         tuesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         wednesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         thursday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 0:00
+          block: 22:00
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -193,26 +211,28 @@ evie:
     block_nightly: true
     block_time: 22:00
     unblock_time: 6:00
-
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
     blocking:
       active: true
       schedule:
         monday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         tuesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         wednesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         thursday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 0:00
+          block: 22:00
 
 
   - download_speed: 5mbit
@@ -226,32 +246,49 @@ evie:
     block_nightly: true
     block_time: 22:00
     unblock_time: 6:00
-
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
     blocking:
       active: true
       schedule:
         monday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         tuesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         wednesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         thursday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 0:00
+          block: 22:00
 
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Kate's playstation
+    hostname: kates-phone
+    priority: 3
+    mac: 08:e6:89:03:19:45
+    ip: 192.168.1.25
+    dhcp: true
+    #block_nightly: false
+    block_time: 00:00
+    unblock_time: 6:00
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
 isac:
   desc: Isac's devices
   priority: 3
-  download_speed: 100mbit
-  upload_speed: 100mbit
+  download_speed: 1000mbit
+  upload_speed: 1000mbit
+  #blocked: false
 
   devices:
   - download_speed: 5mbit
@@ -265,26 +302,28 @@ isac:
     block_nightly: true
     block_time: 00:00
     unblock_time: 6:00
-
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
     blocking:
       active: true
       schedule:
         monday: 
           unblock: 6:00
-          block: 0:22
+          block: 22:00
         tuesday: 
           unblock: 6:00
-          block: 00:00
+          block: 22:00
         wednesday: 
           unblock: 6:00
-          block: 00:00
+          block: 22:00
         thursday: 
           unblock: 6:00
-          block: 00:00
+          block: 22:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 00:00
+          block: 22:00
     
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -297,64 +336,103 @@ isac:
     block_nightly: true
     block_time: 00:00
     unblock_time: 6:00
-
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
     blocking:
       active: true
       schedule:
         monday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         tuesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         wednesday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         thursday: 
           unblock: 6:00
-          block: 0:00
+          block: 22:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 0:00
+          block: 22:00
 
   - download_speed: 5mbit
     upload_speed: 500kbit
     desc: Isac's iPhone
     hostname: isacs-phone
     priority: 3
-    mac: 58:1F:AA:87:69:99
+    #mac: 58:1F:AA:87:69:99
+    mac: d4:1a:3f:e6:82:c1
     ip: 192.168.1.9
     dhcp: true
     block_nightly: true
     block_time: 00:00
     unblock_time: 6:00
-
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
     blocking:
       active: true
       schedule:
         monday: 
           unblock: 6:00
-          block: 00:00
+          block: 22:00
         tuesday: 
           unblock: 6:00
-          block: 00:00
+          block: 22:00
         wednesday: 
           unblock: 6:00
-          block: 00:00
+          block: 22:00
         thursday: 
           unblock: 6:00
-          block: 00:00
+          block: 22:00
         friday: 
           unblock: 6:00
         sunday:
-          block: 00:00
+          block: 22:00
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Isac's computer
+    hostname: isacs-computer
+    priority: 3
+    mac: 00:16:ea:88:b1:8e
+    ip: 192.168.1.14
+    dhcp: true
+    block_nightly: true
+    block_time: 00:00
+    unblock_time: 6:00
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 22:00
+        tuesday: 
+          unblock: 6:00
+          block: 22:00
+        wednesday: 
+          unblock: 6:00
+          block: 22:00
+        thursday: 
+          unblock: 6:00
+          block: 22:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 22:00
 
 linda:
   desc: Linda's devices
   priority: 3
-  download_speed: 100mbit
-  upload_speed: 100mbit
+  download_speed: 1000mbit
+  upload_speed: 1000mbit
 
   devices:
   - download_speed: 3mbit
@@ -375,11 +453,27 @@ linda:
     ip: 192.168.1.61
     dhcp: true
 
+print:
+  desc: Epson WF-2530
+  priority: 1
+  download_speed: 1000mbit
+  upload_speed: 1000mbit
+
+  devices:
+  - download_speed: 6mbit
+    upload_speed: 500kbit
+    desc: Epson WF-2530
+    hostname: epson-wf-2530
+    priority: 1
+    mac: b0:e8:92:58:9d:63
+    ip: 192.168.1.99
+    dhcp: true
+
 media:
   desc: Media devices
   priority: 1
-  download_speed: 100mbit
-  upload_speed: 100mbit
+  download_speed: 1000mbit
+  upload_speed: 1000mbit
 
   devices:
   - download_speed: 6mbit
@@ -400,7 +494,7 @@ media:
     ip: 192.168.1.31
     dhcp: true
 
-  - download_speed: 100mbit
+  - download_speed: 1000mbit
     upload_speed: 500kbit
     desc: All media
     hostname: namic-eth0
