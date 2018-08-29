@@ -93,7 +93,6 @@ eliza:
   priority: 3
   download_speed: 1000mbit
   upload_speed: 1000mbit
-
   devices:
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -109,7 +108,8 @@ eliza:
     desc: Eliza's Phone
     hostname: elizas-phone
     priority: 3
-    mac: 38:f8:89:ec:5a:06
+    #mac: 38:f8:89:ec:5a:06
+    mac: 58:1F:AA:87:69:99
     ip: 192.168.1.42
     dhcp: true
 

@@ -23,7 +23,7 @@ select $fh;
 say "group {";
 
 say "\tsubnet $local_network->{ 'dhcp-subnet' } netmask $local_network->{ 'dhcp-netmask' } {";
-say "\t\t#range 192.168.1.100 192.168.1.200;";
+say "\t\trange 192.168.1.100 192.168.1.200;";
 say "\t\toption routers $local_network->{ gateway };";
 say "\t\toption broadcast-address $local_network->{ 'broadcast-address' };";
 say "\t}";
