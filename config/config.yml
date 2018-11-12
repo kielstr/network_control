@@ -44,15 +44,24 @@ kiel:
 
   - download_speed: 12mbit
     upload_speed: 700kbit
-    desc: Kiel's phone
-    hostname: kiels-phone
+    desc: Kiel's phone2
+    hostname: kiels-phone2
     priority: 1
-    mac: f8:a9:d0:4d:ab:63
+    mac: a8:3e:0e:9c:49:e7
     ip: 192.168.1.5
     dhcp: true
 #    domain-name-servers: 
 #      - 208.67.222.123
 #      - 208.67.220.123
+
+  - download_speed: 12mbit
+    upload_speed: 700kbit
+    desc: Kiel's phone
+    hostname: kiels-phone
+    priority: 1
+    mac: f8:a9:d0:4d:ab:63
+    ip: 192.168.1.4
+    dhcp: true
 
   - download_speed: 12mbit
     upload_speed: 700kbit
@@ -72,13 +81,24 @@ sarah:
   devices:
   - download_speed: 5mbit
     upload_speed: 500kbit
-    desc: Sarah's phone
-    hostname: sarahs-phone
+    desc: Sarah's phone2
+    hostname: sarahs-phone2
     priority: 2
     mac: f8:a9:d0:4d:aa:e0
     ip: 192.168.1.50
     dhcp: true
-    
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Sarah's phone
+    hostname: sarahs-phone
+    priority: 2
+    mac: a8:3e:0e:9c:49:68
+    ip: 192.168.1.53
+    dhcp: true
+
+     
+
   - download_speed: 5mbit
     upload_speed: 500kbit
     desc: Sarah's laptop
@@ -278,11 +298,12 @@ evie:
     ip: 192.168.1.25
     dhcp: true
     #block_nightly: false
-    block_time: 00:00
+    block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
       - 208.67.220.123
+
 isac:
   desc: Isac's devices
   priority: 3
@@ -290,7 +311,77 @@ isac:
   upload_speed: 1000mbit
   #blocked: false
 
+# f8:a9:d0:4d:aa:e0 
   devices:
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Isac's Wii
+    hostname: isacs-wii
+    priority: 3
+    mac: 00:19:fd:07:2d:4f
+    ip: 192.168.1.17
+    dhcp: true
+    block_nightly: true
+    block_time: 22:00
+    unblock_time: 6:00
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 22:00
+        tuesday: 
+          unblock: 6:00
+          block: 22:00
+        wednesday: 
+          unblock: 6:00
+          block: 22:00
+        thursday: 
+          unblock: 6:00
+          block: 22:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 22:00
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Isac's Desktop
+    hostname: isacs-desktop
+    priority: 3
+    mac: 20:e7:17:00:cb:a9
+    ip: 192.168.1.16
+    dhcp: true
+    block_nightly: true
+    block_time: 22:00
+    unblock_time: 6:00
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 22:00
+        tuesday: 
+          unblock: 6:00
+          block: 22:00
+        wednesday: 
+          unblock: 6:00
+          block: 22:00
+        thursday: 
+          unblock: 6:00
+          block: 22:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 22:00
+
   - download_speed: 5mbit
     upload_speed: 500kbit
     desc: Isac's playstation
@@ -300,7 +391,7 @@ isac:
     ip: 192.168.1.8
     dhcp: true
     block_nightly: true
-    block_time: 00:00
+    block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
@@ -334,7 +425,7 @@ isac:
     ip: 192.168.1.12
     dhcp: true
     block_nightly: true
-    block_time: 00:00
+    block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
@@ -369,7 +460,7 @@ isac:
     ip: 192.168.1.9
     dhcp: true
     block_nightly: true
-    block_time: 00:00
+    block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
@@ -403,7 +494,41 @@ isac:
     ip: 192.168.1.14
     dhcp: true
     block_nightly: true
-    block_time: 00:00
+    block_time: 22:00
+    unblock_time: 6:00
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 22:00
+        tuesday: 
+          unblock: 6:00
+          block: 22:00
+        wednesday: 
+          unblock: 6:00
+          block: 22:00
+        thursday: 
+          unblock: 6:00
+          block: 22:00
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 22:00
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Isac's computer 2
+    hostname: isacs-computer2
+    priority: 3
+    mac: 38:b1:db:90:73:89
+    ip: 192.168.1.15
+    dhcp: true
+    block_nightly: true
+    block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
