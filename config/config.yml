@@ -48,11 +48,8 @@ kiel:
     hostname: kiels-phone2
     priority: 1
     mac: a8:3e:0e:9c:49:e7
-    ip: 192.168.1.5
+    ip: 192.168.1.4
     dhcp: true
-#    domain-name-servers: 
-#      - 208.67.222.123
-#      - 208.67.220.123
 
   - download_speed: 12mbit
     upload_speed: 700kbit
@@ -60,7 +57,7 @@ kiel:
     hostname: kiels-phone
     priority: 1
     mac: f8:a9:d0:4d:ab:63
-    ip: 192.168.1.4
+    ip: 192.168.1.5
     dhcp: true
 
   - download_speed: 12mbit
@@ -88,16 +85,14 @@ sarah:
     ip: 192.168.1.50
     dhcp: true
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
-    desc: Sarah's phone
-    hostname: sarahs-phone
-    priority: 2
-    mac: a8:3e:0e:9c:49:68
-    ip: 192.168.1.53
-    dhcp: true
-
-     
+#  - download_speed: 5mbit
+#    upload_speed: 500kbit
+#    desc: Sarah's phone
+#    hostname: sarahs-phone
+#    priority: 2
+#    mac: a8:3e:0e:9c:49:68
+#    ip: 192.168.1.53
+#    dhcp: true
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -291,13 +286,13 @@ evie:
 
   - download_speed: 5mbit
     upload_speed: 500kbit
-    desc: Kate's playstation
+    desc: Kate's
     hostname: kates-phone
     priority: 3
     mac: 08:e6:89:03:19:45
     ip: 192.168.1.25
     dhcp: true
-    #block_nightly: false
+    ##block_nightly: false
     block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
@@ -314,6 +309,15 @@ isac:
 # f8:a9:d0:4d:aa:e0 
   devices:
 
+  - download_speed: 12mbit
+    desc: Isac Watch
+    hostname: isacs-watch
+    priority: 1
+    upload_speed: 800kbit
+    mac: 18:00:db:22:6a:eb
+    ip: 192.168.1.17
+    dhcp: true
+
   - download_speed: 5mbit
     upload_speed: 500kbit
     desc: Isac's Wii
@@ -322,7 +326,7 @@ isac:
     mac: 00:19:fd:07:2d:4f
     ip: 192.168.1.17
     dhcp: true
-    block_nightly: true
+    #block_nightly: false
     block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
@@ -356,7 +360,7 @@ isac:
     mac: 20:e7:17:00:cb:a9
     ip: 192.168.1.16
     dhcp: true
-    block_nightly: true
+    #block_nightly: false
     block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
@@ -382,15 +386,15 @@ isac:
         sunday:
           block: 22:00
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 3mbit
+    upload_speed: 200kbit
     desc: Isac's playstation
     hostname: isacs-playstation
     priority: 3
     mac: c0:38:96:ad:01:59
     ip: 192.168.1.8
     dhcp: true
-    block_nightly: true
+    #block_nightly: false
     block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
@@ -424,12 +428,12 @@ isac:
     mac: 24:a2:e1:04:53:f4
     ip: 192.168.1.12
     dhcp: true
-    block_nightly: true
+    #block_nightly: false
     block_time: 22:00
     unblock_time: 6:00
-    domain-name-servers: 
-      - 208.67.222.123
-      - 208.67.220.123
+#    domain-name-servers: 
+#      - 208.67.222.123
+#      - 208.67.220.123
     blocking:
       active: true
       schedule:
@@ -455,11 +459,15 @@ isac:
     desc: Isac's iPhone
     hostname: isacs-phone
     priority: 3
-    #mac: 58:1F:AA:87:69:99
-    mac: d4:1a:3f:e6:82:c1
+    # Oppa
+    #mac: d4:1a:3f:e6:82:c1
+    # Loan phone
+    #mac: 08:ec:a9:12:7e:7f
+    #nexus 5
+    mac: a8:3e:0e:9c:49:68
     ip: 192.168.1.9
     dhcp: true
-    block_nightly: true
+    #block_nightly: false
     block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
@@ -490,10 +498,10 @@ isac:
     desc: Isac's computer
     hostname: isacs-computer
     priority: 3
-    mac: 00:16:ea:88:b1:8e
+    mac: 28:3a:4d:0f:c3:c3
     ip: 192.168.1.14
     dhcp: true
-    block_nightly: true
+    #block_nightly: false
     block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
@@ -527,7 +535,7 @@ isac:
     mac: 38:b1:db:90:73:89
     ip: 192.168.1.15
     dhcp: true
-    block_nightly: true
+    #block_nightly: false
     block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
@@ -593,6 +601,25 @@ print:
     mac: b0:e8:92:58:9d:63
     ip: 192.168.1.99
     dhcp: true
+
+camera:
+  desc: Samsung
+  priority: 1
+  download_speed: 1000mbit
+  upload_speed: 1000mbit
+
+  devices:
+  - download_speed: 12mbit
+    upload_speed: 500kbit
+    desc: Samsung
+    hostname: camera
+    priority: 1
+    mac: a0:21:95:5c:2b:7e
+    ip: 192.168.1.98
+    dhcp: true
+
+
+
 
 media:
   desc: Media devices
