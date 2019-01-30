@@ -76,23 +76,23 @@ sarah:
   upload_speed: 1000mbit
 
   devices:
-  - download_speed: 5mbit
-    upload_speed: 500kbit
-    desc: Sarah's phone2
-    hostname: sarahs-phone2
-    priority: 2
-    mac: f8:a9:d0:4d:aa:e0
-    ip: 192.168.1.50
-    dhcp: true
-
 #  - download_speed: 5mbit
 #    upload_speed: 500kbit
-#    desc: Sarah's phone
-#    hostname: sarahs-phone
+#    desc: Sarah's phone2
+#    hostname: sarahs-phone2
 #    priority: 2
-#    mac: a8:3e:0e:9c:49:68
-#    ip: 192.168.1.53
+#    mac: f8:a9:d0:4d:aa:e0
+#    ip: 192.168.1.50
 #    dhcp: true
+
+  - download_speed: 5mbit
+    upload_speed: 500kbit
+    desc: Sarah's phone
+    hostname: sarahs-phone
+    priority: 2
+    mac: a8:3e:0e:9c:49:68
+    ip: 192.168.1.53
+    dhcp: true
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -464,7 +464,7 @@ isac:
     # Loan phone
     #mac: 08:ec:a9:12:7e:7f
     #nexus 5
-    mac: a8:3e:0e:9c:49:68
+    mac: f8:a9:d0:4d:aa:e0
     ip: 192.168.1.9
     dhcp: true
     #block_nightly: false
