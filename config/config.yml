@@ -337,20 +337,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         tuesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         wednesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         thursday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         friday: 
           unblock: 6:00
         sunday:
-          block: 22:00
+          block: 23:30
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -361,7 +361,7 @@ isac:
     ip: 192.168.1.16
     dhcp: true
     #block_nightly: false
-    block_time: 22:00
+    block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
@@ -371,20 +371,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         tuesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         wednesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         thursday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         friday: 
           unblock: 6:00
         sunday:
-          block: 22:00
+          block: 23:30
 
   - download_speed: 3mbit
     upload_speed: 200kbit
@@ -395,7 +395,7 @@ isac:
     ip: 192.168.1.8
     dhcp: true
     #block_nightly: false
-    block_time: 22:00
+    block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
@@ -405,20 +405,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         tuesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         wednesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         thursday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         friday: 
           unblock: 6:00
         sunday:
-          block: 22:00
+          block: 23:30
     
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -429,7 +429,7 @@ isac:
     ip: 192.168.1.12
     dhcp: true
     #block_nightly: false
-    block_time: 22:00
+    block_time: 23:30
     unblock_time: 6:00
 #    domain-name-servers: 
 #      - 208.67.222.123
@@ -439,20 +439,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         tuesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         wednesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         thursday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         friday: 
           unblock: 6:00
         sunday:
-          block: 22:00
+          block: 23:30
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -460,15 +460,15 @@ isac:
     hostname: isacs-phone
     priority: 3
     # Oppa
-    #mac: d4:1a:3f:e6:82:c1
+    mac: d4:1a:3f:e6:82:c1
     # Loan phone
     #mac: 08:ec:a9:12:7e:7f
     #nexus 5
-    mac: f8:a9:d0:4d:aa:e0
+    #mac: f8:a9:d0:4d:aa:e0
     ip: 192.168.1.9
     dhcp: true
     #block_nightly: false
-    block_time: 22:00
+    block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
@@ -478,20 +478,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         tuesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         wednesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         thursday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         friday: 
           unblock: 6:00
         sunday:
-          block: 22:00
+          block: 23:30
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -502,7 +502,7 @@ isac:
     ip: 192.168.1.14
     dhcp: true
     #block_nightly: false
-    block_time: 22:00
+    block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
@@ -512,20 +512,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         tuesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         wednesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         thursday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         friday: 
           unblock: 6:00
         sunday:
-          block: 22:00
+          block: 23:30
 
   - download_speed: 5mbit
     upload_speed: 500kbit
@@ -536,7 +536,7 @@ isac:
     ip: 192.168.1.15
     dhcp: true
     #block_nightly: false
-    block_time: 22:00
+    block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
       - 208.67.222.123
@@ -546,20 +546,20 @@ isac:
       schedule:
         monday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         tuesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         wednesday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         thursday: 
           unblock: 6:00
-          block: 22:00
+          block: 23:30
         friday: 
           unblock: 6:00
         sunday:
-          block: 22:00
+          block: 23:30
 
 linda:
   desc: Linda's devices
@@ -654,3 +654,13 @@ media:
     mac: 68:64:4b:0a:08:15
     ip: 192.168.1.10
     dhcp: false
+
+  - download_speed: 1000mbit
+    upload_speed: 500kbit
+    desc: Media Server
+    hostname: media-server
+    priority: 1
+    mac: 00:0f:12:82:0a:6d
+    ip: 192.168.1.97
+    dhcp: true
+    
