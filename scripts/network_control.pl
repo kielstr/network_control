@@ -54,8 +54,8 @@ my $parent_queue = NC::TC::Queue->new(
     id           => $qd->handle . $parent_handle,
     priority     => 1,
     parent       => $qd->handle,
-    rate         => '100mbit',
-    ceiling      => '100mbit',
+    rate         => '1000mbit',
+    ceiling      => '1000mbit',
 )->create;
 
 $qd->run( sprintf 'tc filter add dev %s parent 1:0 protocol ip prio 1 handle %s fw classid %s', 
@@ -86,8 +86,6 @@ for my $subnet ( @{ $local_network{ masquerade } } ) {
 
 
 #$qd->run( "iptables -t mangle -A POSTROUTING -d 192.168.1.10 -s 192.168.1.0/24 -j LOG --log-prefix '** TO NAMIC ** '" );
-
-
 
 #system "iptables -A PREROUTING -j LOG --log-prefix '** PRE ** '";
 #system "iptables -A INPUT -j LOG --log-prefix '** INPUT ** '";

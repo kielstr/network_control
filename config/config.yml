@@ -12,7 +12,7 @@ device: enp2s0
 broadcast-address: 192.168.1.25
 dhcp-subnet: 192.168.1.0
 dhcp-netmask: 255.255.255.0
-dhcp-range: 192.168.1.100:192.168.1.200 
+dhcp-range: "192.168.1.100 192.168.1.200"
 
 --- 
 # Queue groups
@@ -24,26 +24,37 @@ kiel:
   upload_speed: 10000mbit
 
   devices:
-  - download_speed: 12mbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
+    desc: Kiel's iPad
+    hostname: kiels-ipad
+    priority: 1
+    mac: 5c:f7:e6:20:35:8d
+    ip: 192.168.1.23
+    dhcp: true
+
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Kiel's laptop WiFi
     hostname: kiels-laptop
     priority: 1
-    upload_speed: 800kbit
     mac: b8:e8:56:33:8c:30
     ip: 192.168.1.6
     dhcp: true
 
-  - download_speed: 12mbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
+
     desc: Kiel's laptop Wired
     hostname: kiels-laptop-wired
     priority: 1
-    upload_speed: 800kbit
+
     mac: 00:e0:4c:36:90:41
     ip: 192.168.1.96
     dhcp: true
 
-  - download_speed: 12mbit
-    upload_speed: 700kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Kiel's phone2
     hostname: kiels-phone2
     priority: 1
@@ -51,8 +62,8 @@ kiel:
     ip: 192.168.1.4
     dhcp: true
 
-  - download_speed: 12mbit
-    upload_speed: 700kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Kiel's phone
     hostname: kiels-phone
     priority: 1
@@ -60,8 +71,8 @@ kiel:
     ip: 192.168.1.5
     dhcp: true
 
-  - download_speed: 12mbit
-    upload_speed: 700kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Garage laptop
     hostname: garage-laptop
     priority: 1
@@ -76,17 +87,8 @@ sarah:
   upload_speed: 1000mbit
 
   devices:
-#  - download_speed: 5mbit
-#    upload_speed: 500kbit
-#    desc: Sarah's phone2
-#    hostname: sarahs-phone2
-#    priority: 2
-#    mac: f8:a9:d0:4d:aa:e0
-#    ip: 192.168.1.50
-#    dhcp: true
-
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Sarah's phone
     hostname: sarahs-phone
     priority: 2
@@ -94,8 +96,8 @@ sarah:
     ip: 192.168.1.53
     dhcp: true
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Sarah's laptop
     hostname: sarahs-laptop
     priority: 2
@@ -106,11 +108,12 @@ sarah:
 eliza:
   desc: Eliza's devices
   priority: 3
-  download_speed: 1000mbit
-  upload_speed: 1000mbit
+  download_speed: 100mbit
+  upload_speed: 100mbit
   devices:
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Eliza's iPad
     hostname: elizas-ipad
     priority: 3
@@ -118,18 +121,19 @@ eliza:
     ip: 192.168.1.41
     dhcp: true
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Eliza's Phone
     hostname: elizas-phone
     priority: 3
     #mac: 38:f8:89:ec:5a:06
-    mac: 58:1F:AA:87:69:99
+    #mac: 58:1F:AA:87:69:99
+    mac: d4:1a:3f:e6:82:c1
     ip: 192.168.1.42
     dhcp: true
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Eliza's tablet
     hostname: elizas-tablet
     priority: 3
@@ -144,8 +148,8 @@ evie:
   upload_speed: 1000mbit
 
   devices:
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Evie's laptop
     hostname: evies-laptop
     priority: 3
@@ -180,8 +184,8 @@ evie:
           block: 22:00
 
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Evie's tablet
     hostname: evies-tablet
     priority: 3
@@ -215,43 +219,8 @@ evie:
         sunday:
           block: 22:00
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
-    desc: Evie's iPad
-    hostname: evies-ipad
-    priority: 3
-    mac: 5c:f7:e6:20:35:8d
-    ip: 192.168.1.23
-    dhcp: true
-    block_nightly: true
-    block_time: 22:00
-    unblock_time: 6:00
-    domain-name-servers: 
-      - 208.67.222.123
-      - 208.67.220.123
-    blocking:
-      active: true
-      schedule:
-        monday: 
-          unblock: 6:00
-          block: 22:00
-        tuesday: 
-          unblock: 6:00
-          block: 22:00
-        wednesday: 
-          unblock: 6:00
-          block: 22:00
-        thursday: 
-          unblock: 6:00
-          block: 22:00
-        friday: 
-          unblock: 6:00
-        sunday:
-          block: 22:00
-
-
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Evie's phone
     hostname: evies-phone
     priority: 3
@@ -284,8 +253,8 @@ evie:
         sunday:
           block: 22:00
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Kate's
     hostname: kates-phone
     priority: 3
@@ -304,29 +273,29 @@ isac:
   priority: 3
   download_speed: 1000mbit
   upload_speed: 1000mbit
-  #blocked: false
-
-# f8:a9:d0:4d:aa:e0 
+  blocked: false
   devices:
 
-  - download_speed: 12mbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
+
     desc: Isac Watch
     hostname: isacs-watch
     priority: 1
-    upload_speed: 800kbit
+
     mac: 18:00:db:22:6a:eb
     ip: 192.168.1.17
     dhcp: true
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Isac's Wii
     hostname: isacs-wii
     priority: 3
     mac: 00:19:fd:07:2d:4f
     ip: 192.168.1.17
     dhcp: true
-    #block_nightly: false
+    block_nightly: true
     block_time: 22:00
     unblock_time: 6:00
     domain-name-servers: 
@@ -352,15 +321,15 @@ isac:
         sunday:
           block: 23:30
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Isac's Desktop
     hostname: isacs-desktop
     priority: 3
     mac: 20:e7:17:00:cb:a9
     ip: 192.168.1.16
     dhcp: true
-    #block_nightly: false
+    block_nightly: true
     block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
@@ -386,15 +355,15 @@ isac:
         sunday:
           block: 23:30
 
-  - download_speed: 3mbit
-    upload_speed: 200kbit
-    desc: Isac's playstation
-    hostname: isacs-playstation
+  - download_speed: 100mbit
+    upload_speed: 100mbit
+    desc: Isac's Google Home Mini
+    hostname: isacs-google-home-mini
     priority: 3
-    mac: c0:38:96:ad:01:59
+    mac: 20:df:b9:a6:52:55
     ip: 192.168.1.8
     dhcp: true
-    #block_nightly: false
+    block_nightly: true
     block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
@@ -420,54 +389,15 @@ isac:
         sunday:
           block: 23:30
     
-  - download_speed: 5mbit
-    upload_speed: 500kbit
-    desc: Isac's iPad
-    hostname: isacs-ipad
+  - download_speed: 100mbit
+    upload_speed: 100mbit
+    desc: Isac's Chromecast
+    hostname: isacs-chromecast
     priority: 3
-    mac: 24:a2:e1:04:53:f4
+    mac: 7c:d9:5c:5b:f0:aa
     ip: 192.168.1.12
     dhcp: true
-    #block_nightly: false
-    block_time: 23:30
-    unblock_time: 6:00
-#    domain-name-servers: 
-#      - 208.67.222.123
-#      - 208.67.220.123
-    blocking:
-      active: true
-      schedule:
-        monday: 
-          unblock: 6:00
-          block: 23:30
-        tuesday: 
-          unblock: 6:00
-          block: 23:30
-        wednesday: 
-          unblock: 6:00
-          block: 23:30
-        thursday: 
-          unblock: 6:00
-          block: 23:30
-        friday: 
-          unblock: 6:00
-        sunday:
-          block: 23:30
-
-  - download_speed: 5mbit
-    upload_speed: 500kbit
-    desc: Isac's iPhone
-    hostname: isacs-phone
-    priority: 3
-    # Oppa
-    mac: d4:1a:3f:e6:82:c1
-    # Loan phone
-    #mac: 08:ec:a9:12:7e:7f
-    #nexus 5
-    #mac: f8:a9:d0:4d:aa:e0
-    ip: 192.168.1.9
-    dhcp: true
-    #block_nightly: false
+    block_nightly: true
     block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
@@ -493,15 +423,49 @@ isac:
         sunday:
           block: 23:30
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
+    desc: Isac's iPhone
+    hostname: isacs-phone
+    priority: 3
+    mac: 58:cb:52:43:aa:9b
+    ip: 192.168.1.9
+    dhcp: true
+    block_nightly: true
+    block_time: 23:30
+    unblock_time: 6:00
+    domain-name-servers: 
+      - 208.67.222.123
+      - 208.67.220.123
+    blocking:
+      active: true
+      schedule:
+        monday: 
+          unblock: 6:00
+          block: 23:30
+        tuesday: 
+          unblock: 6:00
+          block: 23:30
+        wednesday: 
+          unblock: 6:00
+          block: 23:30
+        thursday: 
+          unblock: 6:00
+          block: 23:30
+        friday: 
+          unblock: 6:00
+        sunday:
+          block: 23:30
+
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Isac's computer
     hostname: isacs-computer
     priority: 3
     mac: 28:3a:4d:0f:c3:c3
     ip: 192.168.1.14
     dhcp: true
-    #block_nightly: false
+    block_nightly: true
     block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
@@ -527,15 +491,15 @@ isac:
         sunday:
           block: 23:30
 
-  - download_speed: 5mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Isac's computer 2
     hostname: isacs-computer2
     priority: 3
     mac: 38:b1:db:90:73:89
     ip: 192.168.1.15
     dhcp: true
-    #block_nightly: false
+    block_nightly: true
     block_time: 23:30
     unblock_time: 6:00
     domain-name-servers: 
@@ -568,20 +532,20 @@ linda:
   upload_speed: 1000mbit
 
   devices:
-  - download_speed: 3mbit
+  - download_speed: 100mbit
     desc: Linda's iPad
     hostname: lindas-ipad
     priority: 3
-    upload_speed: 800kbit
+    upload_speed: 40kbit
     mac: b8:63:4d:cc:e8:1a
     ip: 192.168.1.60
     dhcp: true
 
-  - download_speed: 3mbit
+  - download_speed: 100mbit
     desc: Linda's Phone
     hostname: lindas-phone
     priority: 3
-    upload_speed: 800kbit
+    upload_speed: 40kbit
     mac: d8:c4:6a:cb:53:ca
     ip: 192.168.1.61
     dhcp: true
@@ -628,8 +592,8 @@ media:
   upload_speed: 1000mbit
 
   devices:
-  - download_speed: 6mbit
-    upload_speed: 500kbit
+  - download_speed: 100mbit
+    upload_speed: 100mbit
     desc: Loungeroom Apple TV
     hostname: media-loungeroom-tv
     priority: 1
@@ -637,8 +601,8 @@ media:
     ip: 192.168.1.30
     dhcp: true
 
-  - download_speed: 6mbit
-    upload_speed: 500kbit
+  - download_speed: 1000mbit
+    upload_speed: 1000mbit
     desc: Bedroom Apple TV
     hostname: media-kiels-tv
     priority: 1
@@ -647,7 +611,7 @@ media:
     dhcp: true
 
   - download_speed: 1000mbit
-    upload_speed: 500kbit
+    upload_speed: 1000mbit
     desc: All media
     hostname: namic-eth0
     priority: 1
@@ -656,11 +620,11 @@ media:
     dhcp: false
 
   - download_speed: 1000mbit
-    upload_speed: 500kbit
+    upload_speed: 1000mbit
     desc: Media Server
-    hostname: media-server
+    hostname: workshop
     priority: 1
-    mac: 00:0f:12:82:0a:6d
+    mac: 4c:72:b9:f8:4e:42
     ip: 192.168.1.97
     dhcp: true
     
