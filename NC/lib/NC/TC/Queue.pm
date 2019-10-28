@@ -24,7 +24,7 @@ method create () {
                 $self->id,
                 $self->rate,
                 $self->ceiling;
-                
+                  
     $self->run( $cmd );
 
     return $self;

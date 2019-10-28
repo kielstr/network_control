@@ -1,0 +1,35 @@
+
+<h1>User</h1>
+<a href=/>Home</a>
+<br>
+<br>
+Name: <%name%>
+<br>
+Status: 
+
+
+
+<%IF status == 'enabled'%>
+enabled
+<button name=disable value=disable>Disable</button>
+<%ELSE%>
+disabled
+<button name=enable value=enable>Enable</button>
+<%END%>
+<br>
+Max upload speed: <%download_speed%><br>
+Min upload speed: <%upload_speed%><br>
+
+<br>
+<a href=/add_device/<%uuid%>>Add device</a>
+
+<%IF devices.defined%>
+<h1>User's Devices</h1>
+
+<%FOR device IN devices%>
+    <%device.description%> | <%device.download_speed%> | <%device.upload_speed%> 
+    | <%device.mac%> | <%device.ip%>
+    | <%device.active%> <%device.priority%>
+    | <%device.hostname%> | <%device.domain_name_servers%> <br>
+<%END%>
+<%END%>

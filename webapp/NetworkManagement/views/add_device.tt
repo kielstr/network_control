@@ -1,0 +1,24 @@
+<h1>Add new device for <%name%></h1>
+
+<a href=/>Home</a> | <a href=/user/<%uuid%>>Users Page</a>
+<br>
+</br>
+<form action=/add_device/<%uuid%> method=post>
+Description: <input type=text name=hostname> <br>
+Hostname: <input type=text name=hostname> <br>
+Mac Address: <input type=text name=mac> <br>
+IP Address: <input type=text name=ip> <br>
+
+<br>
+Download Speed: <input type=text name=download_speed><br>
+Upload Speed: <input type=text name=upload_speed><br>
+
+Active <input type=radio name=active value="1">Yes<input type=radio name=active value="0">No<br>
+Priority <input type=text name=priority><br>
+
+DHCP <input type=radio name=dhcp value="1">Yes<input type=radio name=active value="0">No<br>
+Domain Name Servers: <input type=text name=domain_name_servers><br>
+
+<input type="submit"> <input type="reset">
+
+</form>

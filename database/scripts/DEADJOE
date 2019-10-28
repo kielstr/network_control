@@ -1,0 +1,43 @@
+
+*** These modified files were found in JOE when it aborted on Tue Aug 27 13:17:36 2019
+*** JOE was aborted by UNIX signal 15
+
+*** File '(Unnamed)'
+24
+0
+
+*** File '(Unnamed)'
+24
+eliza
+plays
+play
+isac
+op
+Isac
+opp
+op
+media
+
+*** File '(Unnamed)'
+.bash_profile
+network_control/config/config.yml
+network_control/config/config.yml
+network_control/config/config.yml
+network_control/config/config.yml
+upgrate-perl-modules
+upgrate-perl-modules
+sqitch.conf
+deploy.sh
+deploy.sh
+connection.pl
+connection.pl
+connection.pl
+connection.pl
+connection.pl
+connection.pl
+
+*** File '* Startup Log *'
+Processing '/etc/joe/jpicorc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/jpicorc

@@ -1,0 +1,39 @@
+
+*** These modified files were found in JOE when it aborted on Tue Sep 10 20:49:37 2019
+*** JOE was aborted by UNIX signal 15
+
+*** File '(Unnamed)'
+24
+0
+
+*** File '(Unnamed)'
+24
+eliza
+plays
+play
+isac
+op
+Isac
+opp
+op
+media
+
+*** File '(Unnamed)'
+deploy.sh
+deploy.sh
+network_control/scripts/dhcp.pl
+.my.cnf
+.my.cnf
+.my.cnf
+.my.cnf
+.my.cnf
+.my.cnf
+.my.cnf
+/home/kiel/.my.cnf
+/home/kiel/.my.cnf
+
+*** File '* Startup Log *'
+Processing '/etc/joe/jpicorc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/jpicorc

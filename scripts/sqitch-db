@@ -1,0 +1,27 @@
+#!/usr/bin/env bash 
+
+DB=network_management
+HOST=namik
+
+function usage {
+	echo "$0 [ deploy | revert | verify]"
+	exit;
+}
+
+pushd database 1>/dev/null
+case $1 in 
+"deploy")
+	sqitch deploy  -h $HOST -d $DB
+	;;
+"revert")
+	sqitch revert -y  -h $HOST -d $DB
+	;;
+"verify")
+	sqitch verify  -h $HOST -d $DB
+	;;
+*)
+	usage
+	;;
+esac
+
+popd 1>/dev/null

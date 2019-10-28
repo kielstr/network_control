@@ -1,0 +1,10 @@
+%syntax-version=1.0.0
+%project=network_managrment
+
+app_user 2019-08-26T03:56:20Z Kiel R. Stirling <kielstirling@gmail.com> # Adding mysql user account
+create_table_user 2019-08-26T04:03:18Z Kiel R. Stirling <kielstirling@gmail.com> # Create the user table
+uuid_trigger 2019-08-26T04:19:50Z Kiel R. Stirling <kielstirling@gmail.com> # Adding a triger to populate uuid
+grant_access 2019-08-26T06:34:55Z Kiel R. Stirling <kielstirling@gmail.com> # Grant access to the app user
+create_table_device 2019-09-10T10:21:27Z Kiel Stirling,,, <kiel@namik> # Adding device table
+create_table_config 2019-09-10T10:37:30Z Kiel Stirling,,, <kiel@namik> # Adding config table
+create_table_access_schedule 2019-09-10T23:25:20Z Kiel R. Stirling <kielstirling@gmail.com> # Adding table access_schedule

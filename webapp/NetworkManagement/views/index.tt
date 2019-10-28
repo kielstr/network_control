@@ -1,0 +1,9 @@
+
+<h1>Network Management</h1>
+<a href=/add_user>Add User</a>
+<br>
+<br>
+
+<%FOR user IN users%>
+    <a href=/user/<%user.uuid%>><%user.firstname%></a><br>
+<%END%>

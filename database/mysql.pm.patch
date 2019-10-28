@@ -1,0 +1,21 @@
+--- /usr/share/perl5/App/Sqitch/Engine/mysql.pm	2019-02-16 08:57:27.000000000 +1100
++++ /home/kiel/git/sqitch/lib/App/Sqitch/Engine/mysql.pm	2019-08-27 10:18:18.244014328 +1000
+@@ -16,7 +16,7 @@
+ 
+ extends 'App::Sqitch::Engine';
+ 
+-our $VERSION = '0.9999';
++# VERSION
+ 
+ has uri => (
+     is       => 'ro',
+@@ -171,7 +171,8 @@
+ 
+         # Special-case --password, which requires = before the value. O_o
+         if (my $pw = $self->password) {
+-            push @ret, "--password=$pw";
++            push @ret, "--password=$pw"
++               unless $self->_mycnf->{password};
+         }
+ 
+         # Options to keep things quiet.
