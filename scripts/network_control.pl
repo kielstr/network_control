@@ -33,7 +33,7 @@ my $qd = NC::TC::Qdisc->new(
 ->create;
 
 # Clear NAT 
-$qd->run( 'iptables -t nat -F' );
+#$qd->run( 'iptables -t nat -F' );
 
 # Clear marking rules
 $qd->run( 'iptables -t mangle -F' );
@@ -47,6 +47,12 @@ $qd->run( 'iptables -A INPUT -p tcp -s 60.241.110.238 --dport 22 -j ACCEPT' );
 $qd->run( 'iptables -A INPUT -p tcp -s 192.168.1.0/24 --dport 22 -j ACCEPT' );
 $qd->run( 'iptables -A INPUT -p tcp --dport 22 -j DROP' );
 
+# Allow git
+$qd->run( 'iptables -A INPUT -p tcp -s portal.sdlocal.net --dport 8081 -j ACCEPT' );
+$qd->run( 'iptables -A INPUT -p tcp -s 60.241.110.238 --dport 8081 -j ACCEPT' );
+$qd->run( 'iptables -A INPUT -p tcp -s 192.168.1.0/24 --dport 8081 -j ACCEPT' );
+$qd->run( 'iptables -A INPUT -p tcp --dport 8081 -j DROP' );
+
 my $parent_handle = $qd->next_queue_id;
 
 my $parent_queue = NC::TC::Queue->new(
@@ -54,8 +60,8 @@ my $parent_queue = NC::TC::Queue->new(
     id           => $qd->handle . $parent_handle,
     priority     => 1,
     parent       => $qd->handle,
-    rate         => '1000mbit',
-    ceiling      => '1000mbit',
+    rate         => '1gbit',
+    ceiling      => '1gbit',
 )->create;
 
 $qd->run( sprintf 'tc filter add dev %s parent 1:0 protocol ip prio 1 handle %s fw classid %s', 
