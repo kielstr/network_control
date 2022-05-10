@@ -138,7 +138,8 @@ sarah:
     desc: Sarah's laptop
     hostname: sarahs-laptop
     priority: 2
-    mac: 64:80:99:FB:56:44
+    #mac: 64:80:99:FB:56:44
+    mac: c8:58:c0:ab:91:e5
     ip: 192.168.1.51
     dhcp: true
     blocking:
@@ -188,7 +189,9 @@ eliza:
     desc: Eliza's Laptop
     hostname: elizas-laptop
     priority: 3
-    mac: c4:3a:35:90:5e:30
+    # old 
+    #mac: c4:3a:35:90:5e:30
+    mac: 2c:f0:ee:2f:6f:ba
     ip: 192.168.1.43
     dhcp: true
 
@@ -205,8 +208,8 @@ evie:
     desc: Evie's laptop
     hostname: evies-laptop
     priority: 3
-    #mac: 58:fb:84:2c:14:88
-    mac: c4:3a:35:90:5e:3f
+    #mac: c4:3a:35:90:5e:3f
+    mac: 2c:f0:ee:29:25:28
     ip: 192.168.1.20
     dhcp: true
     domain-name-servers: 
@@ -303,15 +306,6 @@ isac:
   devices:
   - download_speed: 2mbps
     upload_speed: 2mbps
-    desc: Isac Watch
-    hostname: isacs-watch
-    priority: 1
-    mac: 18:00:db:22:6a:eb
-    ip: 192.168.1.17
-    dhcp: true
-
-  - download_speed: 2mbps
-    upload_speed: 2mbps
     desc: Isac's Wii
     hostname: isacs-wii
     priority: 3
@@ -340,13 +334,14 @@ isac:
           block: 23:30
           unblock: 6:00
 
-  - download_speed: 40mbps
+  - download_speed: 5mbps
     upload_speed: 2mbps
     desc: Isac's Desktop
     hostname: isacs-desktop
     priority: 3
-    mac: 80:32:53:90:d9:31
-    #mac: ee:05:9d:76:c1:66
+    mac: a8:a1:59:19:18:33
+    #mac: 80:32:53:90:d9:31
+
     ip: 192.168.1.16
     dhcp: true
     domain-name-servers: 
@@ -435,10 +430,10 @@ isac:
 
   - download_speed: 2mbps
     upload_speed: 2mbps
-    desc: Isac's iPhone
+    desc: Isac's phone
     hostname: isacs-phone
     priority: 3
-    mac: 3a:0a:94:df:34:7d
+    mac: 76:2f:71:93:03:bc
     ip: 192.168.1.9
     dhcp: true
     blocking:
@@ -498,7 +493,8 @@ isac:
     desc: Isac's computer 2
     hostname: isacs-computer2
     priority: 3
-    mac: 38:b1:db:90:73:89
+    #mac: 38:b1:db:90:73:89
+    mac: a6:5f:65:b8:9e:f7
     ip: 192.168.1.15
     dhcp: true
     blocking:
@@ -575,10 +571,10 @@ media:
 
   - download_speed: 100mbps
     upload_speed: 100mbps
-    desc: Loungeroom Apple TV
+    desc: Loungeroom TV
     hostname: media-loungeroom-tv
     priority: 1
-    mac: 68:64:4b:0a:08:15
+    mac: 54:3a:d6:55:37:50
     ip: 192.168.1.30
     dhcp: true
 
